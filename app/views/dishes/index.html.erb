@@ -1,0 +1,6 @@
+<h1>All the dishes</h1>
+<ul>
+  <% @dishes.each do |dish| %>
+    <li><strong><%= link_to dish.title, dish_path(dish) %></strong>: <%= dish.description %></li>
+  <% end %>
+</ul>
