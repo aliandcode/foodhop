@@ -10,7 +10,7 @@ class DishesController < ApplicationController
 
   def create
     @dish = Dish.new(dish_params)
-    @dish.user = User.all.sample
+    @dish.user = current_user
     if @dish.save!
       redirect_to root_path
     else

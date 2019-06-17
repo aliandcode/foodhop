@@ -17,6 +17,8 @@ User.destroy_all
 15.times do
   user = User.new
   user.name = Faker::Name.name
+  user.email = Faker::Internet.email
+  user.password = "123456"
   user.address = Faker::Address.full_address
   user.phone_number = Faker::PhoneNumber.cell_phone
   user.save!
