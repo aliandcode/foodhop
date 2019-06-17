@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'date'
+
+Review.destroy_all
+Order.destroy_all
+DishAvailability.destroy_all
+Dish.destroy_all
+User.destroy_all
 
 15.times do
   user = User.new
@@ -33,13 +40,19 @@ end
 end
 
 60.times do
-  dish_availability = Dish_availability.new
-  dish_availability.date = Date.parse(Faker::Date.between(20.days.ago, Date.today))
+  dish_availability = DishAvailability.new
+  dish_availability.date = Time.at(rand * (Time.now.to_f - 0.0.to_f))
   dish_availability.portion_available = "#{rand(1..12)} servings"
   dish_availability.dish = Dish.all.sample
   dish_availability.save!
 end
 
+80.times do
+  order = Order.new
+  order.user = User.all.sample
+  order.dish_availability = DishAvailability.all.sample
+  order.save!
+end
 
 
 
