@@ -1,5 +1,6 @@
+<h1>Your order summary</h1>
 <%= simple_form_for [@dish_availability, @order] do |f| %>
   <%= f.input :dishes_portion %>
   <%= f.input :comment %>
-  <%= f.button :submit %>
+  <%= f.button :submit, "paynow" %>
 <% end %>
