@@ -1,2 +1,5 @@
 <h2><%= @dish.title %></h2>
 <h5><%= @dish.description %></h5>
+<br>
+<br>
+<%= link_to "Add to basket", dish_orders_path, method: :post %>

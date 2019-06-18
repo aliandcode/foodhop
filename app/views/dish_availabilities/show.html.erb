@@ -1,0 +1,9 @@
+<h2><%= @dish_availability.dish.title %></h2>
+<h5><%= @dish_availability.dish.description %></h5>
+<br>
+<br>
+<%= simple_form_for [@dish_availability, @order], url: dish_availability_orders_path(@dish_availability), method: :post  do |f| %>
+  <%= f.button :submit %>
+<% end %>
+
+
