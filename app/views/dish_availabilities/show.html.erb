@@ -2,8 +2,6 @@
 <h5><%= @dish_availability.dish.description %></h5>
 <br>
 <br>
-<%= simple_form_for [@dish_availability, @order], url: dish_availability_orders_path(@dish_availability), method: :post  do |f| %>
-  <%= f.button :submit %>
-<% end %>
+<%= link_to "Place your order", new_dish_availability_order_path(@dish_availability) %>
 
 
