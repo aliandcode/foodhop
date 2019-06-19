@@ -1,6 +1,17 @@
-<h1>All the available dishes</h1>
+<h1>Dishes</h1>
 <ul>
   <% @dish_availabilities.each do |availability| %>
-    <li><strong><%= link_to availability.dish.title, dish_availability_path(availability) %></strong>: <%= availability.dish.description %></li>
+    <li><strong><%= link_to availability.dish.title, dish_availability_path(availability) %></strong>: <%= availability.dish.ingredients %>
+      <p>Amount: <%= humanized_money_with_symbol(availability.dish.price) %></p></li>
+  <% end %>
+</ul>
+
+<h1>Chefs</h1>
+<ul>
+  <% @chefs.each do |chef| %>
+<!--     <li><strong><%= link_to "#{chef.first_name} #{chef.last_name}", dish_availability_path(chef) %></strong>: </li> -->
+    <li>
+      <%= chef.first_name %> <%= chef.last_name %>
+    </li>
   <% end %>
 </ul>
