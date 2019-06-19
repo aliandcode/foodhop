@@ -8,6 +8,6 @@ class UsersController < ApplicationController
     @user.is_chef = true
     @user.save
 
-    redirect_to dish_availabilities_path
+    redirect_to chef_page_path
   end
 end

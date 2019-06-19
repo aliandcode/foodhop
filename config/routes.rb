@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: "pages#dashboard"
   get '/make_chef', to: 'users#make_chef', as: 'make_chef'
+  get '/chef_page', to: 'pages#chef_page', as: 'chef_page'
 
 end

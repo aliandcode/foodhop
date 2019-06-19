@@ -13,7 +13,7 @@
   <br>
   <%#= raise %>
   <% if @user.is_chef %>
-    <li><%= link_to 'My chef page', dish_availabilities_path %></li>
+    <li><%= link_to 'My chef page', chef_page_path %></li>
   <% else %>
     <li><%= link_to 'Become a chef', make_chef_path %></li>
   <% end %>
