@@ -46,6 +46,7 @@ end
   dish_availability.date = Time.at(rand * (Time.now.to_f - 0.0.to_f))
   dish_availability.portion_available = "#{rand(1..12)} servings"
   dish_availability.dish = Dish.all.sample
+  dish_availability.price = rand(25..200)/10.0
   dish_availability.save!
 end
 

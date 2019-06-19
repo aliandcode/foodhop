@@ -20,6 +20,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
+    @order = Order.new
   end
 
   def dish_params

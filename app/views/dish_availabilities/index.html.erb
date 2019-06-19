@@ -1,0 +1,6 @@
+<h1>All the available dishes</h1>
+<ul>
+  <% @dish_availabilities.each do |availability| %>
+    <li><strong><%= link_to availability.dish.title, dish_availability_path(availability) %></strong>: <%= availability.dish.description %></li>
+  <% end %>
+</ul>
