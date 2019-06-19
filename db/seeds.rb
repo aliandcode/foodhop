@@ -21,6 +21,7 @@ User.destroy_all
   user.password = "123456"
   user.address = Faker::Address.full_address
   user.phone_number = Faker::PhoneNumber.cell_phone
+  user.is_chef = false
   user.save!
 end
 
