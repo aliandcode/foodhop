@@ -1,0 +1,33 @@
+// _card.scss
+
+.card-title {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 7px;
+}
+
+a {
+  color: black;
+}
+
+.card-body {
+  padding: 0.5rem;
+}
+
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.card-left p {
+  margin-bottom: 0px;
+  font-size: 10px;
+  color: #156801;
+}
+
+.card-price p {
+  display: flex;
+  margin: 0px;
+}
