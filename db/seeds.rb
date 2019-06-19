@@ -27,6 +27,7 @@ cook_category = ["hobbyist", "professional cook"]
   user.category = cook_category[rand(0..1)]
   user.bio = Faker::Restaurant.description
   user.is_chef = Faker::Boolean.boolean
+
   user.save!
 end
 
@@ -37,7 +38,7 @@ cuisine = []
   dish = Dish.new
   dish.title = Faker::Food.dish
   dish.ingredients = Faker::Food.description
-  dish.user = User.all.sample
+  dish.user = User.where(is_chef: true).sample
   dish.allergens = allergens[rand(0..14)]
   dish.cuisine = [Faker::Restaurant.type]
   dish.save!

@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
-  def home
+  def dashboard
+    @user = current_user
+  end
 
+  def chef_page
+    @user = current_user
   end
 end
