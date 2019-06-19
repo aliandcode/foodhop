@@ -14,21 +14,32 @@ DishAvailability.destroy_all
 Dish.destroy_all
 User.destroy_all
 
+cook_category = ["hobbyist", "professional cook"]
+
 15.times do
   user = User.new
-  user.name = Faker::Name.name
+  user.first_name = Faker::Name.first_name
+  user.last_name = Faker::Name.last_name
   user.email = Faker::Internet.email
   user.password = "123456"
   user.address = Faker::Address.full_address
   user.phone_number = Faker::PhoneNumber.cell_phone
+  user.category = cook_category[rand(0..1)]
+  user.bio = Faker::Restaurant.description
+  user.is_chef = Faker::Boolean.boolean
   user.save!
 end
+
+allergens = ["Cereals containing gluten", "Crustaceans", "Eggs", "Fish", "Peanuts", "Soybeans", "Milk", "Nuts", "Celery", "Mustard", "Sesame seeds", "Sulphur dioxide and sulphites", "Lupin", "Molluscs"]
+cuisine = []
 
 60.times do
   dish = Dish.new
   dish.title = Faker::Food.dish
-  dish.description = Faker::Food.description
+  dish.ingredients = Faker::Food.description
   dish.user = User.all.sample
+  dish.allergens = allergens[rand(0..14)]
+  dish.cuisine = [Faker::Restaurant.type]
   dish.save!
 end
 
@@ -54,6 +65,7 @@ end
   order = Order.new
   order.user = User.all.sample
   order.dish_availability = DishAvailability.all.sample
+  order.status = ["pending", "archived"][rand(0..1)]
   order.save!
 end
 

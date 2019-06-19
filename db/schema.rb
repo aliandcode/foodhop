@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_153841) do
+ActiveRecord::Schema.define(version: 2019_06_19_141600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,18 @@ ActiveRecord::Schema.define(version: 2019_06_18_153841) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.string "ingredients"
     t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "allergens"
+    t.text "cuisine", default: [], array: true
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_dishes_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "order_number"
     t.string "qr_code"
     t.string "dishes_portion"
     t.bigint "dish_availability_id"
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_06_18_153841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "comment"
+    t.string "status"
+    t.jsonb "payment"
     t.index ["dish_availability_id"], name: "index_orders_on_dish_availability_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -73,6 +77,10 @@ ActiveRecord::Schema.define(version: 2019_06_18_153841) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
+    t.boolean "is_chef"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
