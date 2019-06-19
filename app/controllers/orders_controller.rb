@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @dish_availability = DishAvailability.find(params[:dish_availability_id])
   end
 
   def show

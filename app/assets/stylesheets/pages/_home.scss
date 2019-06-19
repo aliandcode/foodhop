@@ -1,1 +1,77 @@
-// Specific CSS for your home-page
+h2 {
+  color: #FFFFFF;
+  font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.btn {
+  display: block;
+  border-radius: 8px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 47px;
+  width: 242px;
+}
+
+.facebook-btn {
+  display: block;
+  border-radius: 8px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  color: #FFFFFF;
+  background-color: rgba(18, 32, 137, 0.5);
+  height: 47px;
+  width: 242px;
+}
+
+
+
+.background {
+  background: linear-gradient(rgba(21,104,1,.95), rgba(21,104,1,.95)), url('https://cdn6.f-cdn.com/contestentries/1081058/20616578/596f25bb70178_thumb900.jpg');
+  background-repeat: no-repeat;
+  overflow-y: hidden ! important;
+  overflow-x: hidden ! important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 100vh;
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  left: 25%;
+  margin-left: -76px;
+  margin-top: 216px;
+}
+
+.btn-container {
+  position: absolute;
+  left: 31%;
+  margin-left: -50px;
+  margin-top: 549px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.logo-brand {
+  height: 346px;
+  width: 88px;
+}
+
+img {
+  height: 88px;
+  width: 346px;
+}
+
+

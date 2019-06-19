@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-
   resources :users
+
+
+  get '/dashboard', to: "pages#dashboard"
+  get '/make_chef', to: 'users#make_chef', as: 'make_chef'
+  get '/chef_page', to: 'pages#chef_page', as: 'chef_page'
+
 
 end
