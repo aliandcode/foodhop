@@ -2,7 +2,18 @@
 <h1>Dishes</h1>
   <ul>
     <% @dishes.each do |dish| %>
-      <li><%= dish.title %>, <%= dish.ingredients %></li>
+    <li><%= dish.title %></li>
+    <%= simple_form_for [dish, @dish_availability] do |f| %>
+      <%= f.input :portion_available %>
+      <%= f.input :price %>
+      <%= f.input :date %>
+      <%= f.input :address %>
+      <%= f.button :submit %>
+    <% end %>
+
+      <%#= link_to new_dish_dish_availability_path(dish) do %>
+
+      <%# end %>
     <% end %>
   </ul>
 <br>
