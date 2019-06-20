@@ -1,5 +1,4 @@
 // _card.scss
-
 .card-title {
   font-weight: 300;
   font-size: 16px;
@@ -14,12 +13,10 @@ a {
   padding: 0.5rem;
 }
 
-
 .card-details {
   display: flex;
   justify-content: space-between;
 }
-
 
 .card-left p {
   margin-bottom: 0px;
@@ -30,4 +27,19 @@ a {
 .card-price p {
   display: flex;
   margin: 0px;
+}
+
+
+.chef-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  img {
+    height: 40px;
+  }
 }
