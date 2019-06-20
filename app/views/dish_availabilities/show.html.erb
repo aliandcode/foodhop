@@ -1,7 +1,11 @@
-<h2><%= @dish_availability.dish.title %></h2>
+<div class="card-dish">
+  <img src="https://hips.hearstapps.com/hmg-prod/images/hummus-horizontal-jpg-1525126330.jpg">
+    <div class="price-card">
+      <h4 class="card-dish-pricing">£15</h4>
+    </div>
+</div>
+<h3><%= @dish_availability.dish.title %></h3>
 <h5><%= @dish_availability.dish.description %></h5>
 <br>
 <br>
-<%= link_to "Place your order", new_dish_availability_order_path(@dish_availability) %>
-
-
+<button type="button-show" class="btn btn-secondary">Add To Basket</button>
