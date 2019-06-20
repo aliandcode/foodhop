@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :dishes
   has_many :reviews
   has_many :orders
+
+  include PgSearch
+  multisearchable against: %i[first_name last_name]
 end

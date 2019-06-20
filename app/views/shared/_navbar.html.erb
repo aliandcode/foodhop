@@ -7,6 +7,22 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+    <!-- [...] -->
+  <%= form_tag dish_availabilities_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search chefs, dishes or location"
+    %>
+  <% end %>
+  <%= form_tag dish_availabilities_path, method: :get do %>
+  <%= text_field_tag :query2,
+    params[:query2],
+    class: "form-control",
+    placeholder: "Date"
+  %>
+  <% end %>
+  <!-- the list of movies -->
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
