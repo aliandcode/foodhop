@@ -1,6 +1,7 @@
 class DishAvailabilitiesController < ApplicationController
   def index
     @dish_availabilities = DishAvailability.all
+    @chefs = User.where(is_chef: true)
   end
 
   def show

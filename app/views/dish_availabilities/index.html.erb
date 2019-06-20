@@ -1,6 +1,42 @@
-<h1>All the available dishes</h1>
-<ul>
-  <% @dish_availabilities.each do |availability| %>
-    <li><strong><%= link_to availability.dish.title, dish_availability_path(availability) %></strong>: <%= availability.dish.description %></li>
-  <% end %>
-</ul>
+<nav>
+  <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chefs</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="d-flex align-content-start flex-wrap d-flex justify-content-center">
+      <% @dish_availabilities.each do |availability| %>
+        <div class="card" style="width: 11rem;">
+          <div class="card-body">
+            <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+            <span class="card-title"><%= link_to availability.dish.title, dish_availability_path(availability) %></span>
+              <div class="card-details">
+                <div class="card-left">
+                  <p>7-9 PM</p> <p>0.8 km away</p>
+                </div>
+                <div class="card-price">
+                  <p><%= humanized_money_with_symbol(availability.dish.price) %></p></li>
+                </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Chefs -->
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  <div class="d-flex align-content-start flex-wrap d-flex justify-content-center">
+     <% @chefs.each do |chef| %>
+        <div class="card" style="width: 11rem;">
+          <div class="card-body">
+            <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+            <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
