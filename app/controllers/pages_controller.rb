@@ -5,5 +5,6 @@ class PagesController < ApplicationController
 
   def chef_page
     @user = current_user
+    @dishes = @user.dishes
   end
 end
