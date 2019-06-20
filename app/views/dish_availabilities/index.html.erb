@@ -119,26 +119,40 @@
 
     <!-- Searched Chefs -->
     <% if @search_results.present? %>
+      <!-- Searched Chefs if searching for chef -->
+      <% if @search_results[0].searchable_type = "User" %>
 
-    <% if @search_results[0].searchable_type = "User" %>
+        <% @search_results.each do |result| %>
 
-    <% @search_results.each do |result| %>
+          <div class="chef-card">
+            <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+            <div>
+              <span class="card-title"><%= result.searchable.first_name %> <%= result.searchable.last_name %></span><br>
+              <span>*****</span>
+            </div>
+            <div class="chef-distance">0.7km away</div>
+            <div class="chef-contact">M</div>
+          </div>
 
-    <div class="chef-card">
-      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
-      <div>
-        <span class="card-title"><%= result.searchable.user.first_name %> <%= result.searchable.user.last_name %></span><br>
-        <span>*****</span>
-      </div>
-      <div class="chef-distance">0.7km away</div>
-      <div class="chef-contact">M</div>
-    </div>
+        <% end %>
 
-    <% elsif @search_results[0].searchable_type = "Dish" %>
+      <% elsif @search_results[0].searchable_type = "Dish" %>
+      <!-- Searched Chefs if searching for dish or ingredient -->
+        <% @search_results.each do |result| %>
 
+          <div class="chef-card">
+            <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+            <div>
+              <span class="card-title"><%= result.searchable.user.first_name %> <%= result.searchable.user.last_name %></span><br>
+              <span>*****</span>
+            </div>
+            <div class="chef-distance">0.7km away</div>
+            <div class="chef-contact">M</div>
+          </div>
 
-    <% end %>
-    <% end %>
+        <% end %>
+
+      <% end %>
     <% end %>
 
   </div>
