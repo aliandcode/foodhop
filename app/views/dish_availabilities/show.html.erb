@@ -1,8 +1,8 @@
 <div class= "show-style">
   <div class="card-dish">
-    <img src="https://www.theelementsofliving.com/wp-content/uploads/2017/08/shutterstock_573890704.jpg" class="img-dish">
+    <%= image_tag("#{@dish.photo}", class: "img-dish") %>
     <div class="price-container">
-      <h4 class="card-dish-pricing">€15</h4>
+      <h4 class="card-dish-pricing"><%= humanized_money_with_symbol(@dish.price) %></h4>
     </div>
   </div>
   <div class="container">
@@ -10,7 +10,7 @@
       <div class="chef-container">
         <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
         <div class="name-stars">
-        <p><%= @chef.first_name %> </p>
+        <p><%= @chef.first_name %> <%= @chef.last_name %></p>
         <div class="star-container">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button type="button-show" class="button">Add To Basket</button>
+      <%= link_to 'Add To Basket', new_dish_availability_order_path(@dish_availability), class: "button"%>
     </div>
   </div>
 </div>
