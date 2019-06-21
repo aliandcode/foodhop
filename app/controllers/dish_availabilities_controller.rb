@@ -21,6 +21,8 @@ class DishAvailabilitiesController < ApplicationController
 
   def show
     @dish_availability = DishAvailability.find(params[:id])
+    @dish = @dish_availability.dish
+    @chef = @dish.user
     @order = Order.new
   end
 
