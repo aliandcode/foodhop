@@ -1,12 +1,53 @@
-<div class="card-dish">
-  <img src="https://hips.hearstapps.com/hmg-prod/images/hummus-horizontal-jpg-1525126330.jpg">
-    <div class="price-card">
-      <h4 class="card-dish-pricing">£15</h4>
+<div class= "show-style">
+  <div class="card-dish">
+    <img src="https://www.theelementsofliving.com/wp-content/uploads/2017/08/shutterstock_573890704.jpg" class="img-dish">
+    <div class="price-container">
+      <h4 class="card-dish-pricing">€15</h4>
     </div>
-</div>
-<h3><%= @dish_availability.dish.title %></h3>
-<h5><%= @dish_availability.dish.description %></h5>
-<br>
-<br>
+  </div>
+  <div class="container">
+    <div class="card-chef-infos">
+      <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+      <div class="chef-container">
+        <p><%= @chef.first_name %> </p>
+        <div class="star-container">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="clock-container">
+          <p> 6 - 9 PM </p>
+          <i class="far fa-clock"></i>
+        </div>
+        <div class="marker-container">
+          <p> 1.2 km away </p>
+          <i class="fas fa-map-marker"></i>
+        </div>
+      </div>
+    </div>
 
-<button type="button-show" class="btn btn-secondary">Add To Basket</button>
+    <div class= "info-container">
+
+      <div class="presentation-container">
+        <h3><%= @dish_availability.dish.title %></h3>
+        <p><%= @dish_availability.dish.cuisine %></p>
+      </div>
+      <div class="description-container">
+        <h5>Ingredients</h5>
+        <p><%= @dish_availability.dish.ingredients %></p>
+        <h5>Allergies</h5>
+        <p><%= @dish_availability.dish.allergens %></p>
+        <h5>Portions Left</h5>
+        <p><%= @dish_availability.portion_available %></p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button type="button-show" class="button">Add To Basket</button>
+    </div>
+  </div>
+</div>
+
+
+

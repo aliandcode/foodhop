@@ -1,25 +1,47 @@
-h3 {
+.img-dish {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.show-style h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 27px;
   font-style: bolder;
   text-align: center;
   color: #000000
-
 }
 
-h4 {
+.presentation-container p {
+  text-align: center;
+  font-family:'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+.show-style h4 {
   font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
-
-.card-dish-pricing{
+.price-container {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 53px;
   position: absolute;
   right: 14px;
-  top: 150px;
-  width: 53px;
+  top: 140px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn {
+.card-dish-pricing{
+  margin: 0;
+}
+
+.button {
   border-radius: 8px;
   border-color: transparent;
   border-style: solid;
@@ -28,13 +50,44 @@ h4 {
   background-color: #156801;
   height: 36px;
   width: 137px;
-  margin-left: 117px;
-  margin-top: 279px;
+  margin-top: 53px;
 }
 
-.price-card {
+
+.avatar-chef-large {
+  width: 38px;
+  height: 41px;
+  margin-left: 10px;
+  margin-top: 10px;
   border-radius: 50%;
-  background-color: #ffffff;
-  border-color: #ffffff
 }
 
+.show-style p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.description-container p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-style: lighter;
+}
+
+.description-container h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: bolder;
+}
+
+.fas {
+  font-size: 10px;
+}
+
+.button-container {
+  text-align: center;
+}
