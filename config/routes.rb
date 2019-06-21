@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'dish_availabilities#index'
 
-  resources :dishes, only: [:index, :show, :new, :create]
+  resources :dishes, only: [:index, :show, :new, :create] do
+    resources :dish_availabilities, only: [:new, :create]
+  end
 
-  resources :dish_availabilities do
+  resources :dish_availabilities, only: [:index, :show] do
     resources :orders
   end
 
