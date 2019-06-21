@@ -1,7 +1,22 @@
 class DishAvailabilitiesController < ApplicationController
   def index
-    @dish_availabilities = DishAvailability.all
-    @chefs = User.where(is_chef: true)
+    if params[:query].present?
+      PgSearch::Multisearch.rebuild(DishAvailability)
+      # PgSearch::Multisearch.rebuild(Dish)
+      # PgSearch::Multisearch.rebuild(User)
+      @search_results = PgSearch.multisearch(params[:query])
+
+      # building unique chefs
+      @chefs_a = []
+      @search_results.each do |result|
+      @chefs_a << result.searchable.user
+      end
+      @chefs_a = @chefs_a.uniq
+
+    else
+      @dish_availabilities = DishAvailability.all
+      @chefs = User.where(is_chef: true)
+    end
   end
 
   def show
