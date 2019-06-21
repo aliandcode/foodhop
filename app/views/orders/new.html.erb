@@ -1,17 +1,17 @@
 <div class="container">
   <div class="bg-summary">
-  <h1>Your Order Summary</h1>
-  <div class="order-summary">
+    <h1>Your Order Summary</h1>
+    <div class="order-summary">
 
-    <%= simple_form_for [@dish_availability, @order] do |f| %>
+      <%= simple_form_for [@dish_availability, @order] do |f| %>
       <%= f.input :dishes_portion, label: 'No. of Portions', collection: 1..5 %>
       <%= f.input :comment, label:'Comments for Chefs' ,as: :text %>
 
       <div class="btn-summary">
 
-      <%= f.button :submit, "Pay Now" %>
+        <%= f.button :submit, "Pay Now" %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
