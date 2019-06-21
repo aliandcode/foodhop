@@ -1,0 +1,7 @@
+<%= simple_form_for [@dish, @dish_availability] do |f| %>
+  <%= f.input :portion_available %>
+  <%= f.input :price %>
+  <%= f.input :date %>
+  <%= f.input :address %>
+  <%= f.button :submit %>
+<% end %>
