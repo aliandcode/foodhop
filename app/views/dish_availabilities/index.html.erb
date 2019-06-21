@@ -1,21 +1,14 @@
 <nav class="header-nav">
-  <%= form_tag dish_availabilities_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search dishes, cuisine of ingredients"
-    %>
-  <% end %>
-  <!-- filter/search by date to be finished -->
-<!--   <%= form_tag dish_availabilities_path, method: :get do %>
-  <%= text_field_tag :query2,
-    params[:query2],
-    class: "form-control",
-    placeholder: "Date"
+
+<!--   <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+-->
+<%= form_tag dish_availabilities_path, method: :get do %>
+<%= text_field_tag :query,
+params[:query],
+class: "form-control",
+  placeholder: "Search dishes, cuisine or ingredients"
   %>
-  <% end %> -->
-
-
+  <% end %>
 
   <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
@@ -31,53 +24,51 @@
 
       <!-- Deafult Dishes -->
       <% if @dish_availabilities.present? %>
-        <% @dish_availabilities.each do |availability| %>
-          <div class="card" style="width: 11rem;">
-            <div class="card-body">
-              <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
-              <span class="card-title"><%= link_to availability.dish.title, dish_availability_path(availability) %></span>
-              <div class="card-details">
-                <div class="card-left">
-                  <p>7-9 PM</p>
-                  <p>0.8 km away</p>
-                </div>
-                <div class="card-price">
-                  <p><%= humanized_money_with_symbol(availability.dish.price) %></p>
-                </div>
-              </div>
+      <% @dish_availabilities.each do |availability| %>
+      <div class="card" style="width: 11rem;">
+        <div class="card-body">
+          <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+          <span class="card-title"><%= link_to availability.dish.title, dish_availability_path(availability) %></span>
+          <div class="card-details">
+            <div class="card-left">
+              <p>7-9 PM</p>
+              <p>0.8 km away</p>
+            </div>
+            <div class="card-price">
+              <p><%= humanized_money_with_symbol(availability.dish.price) %></p>
             </div>
           </div>
-        <% end %>
+        </div>
+      </div>
+      <% end %>
       <% end %>
 
       <!-- Searched Dishes -->
       <% if @search_results.present? %>
 
-          <% @search_results.each do |result| %>
-            <div class="card" style="width: 11rem;">
-              <div class="card-body">
-                <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
-                <span class="card-title"><%= link_to result.searchable.title, dish_availability_path(result.searchable) %></span>
-                <div class="card-details">
-                  <div class="card-left">
-                    <p>7-9 PM</p> <p>0.8 km away</p>
-                  </div>
-                  <div class="card-price">
-                    <p><%= humanized_money_with_symbol(result.searchable.price) %></p>
-                  </div>
-                </div>
-              </div>
+      <% @search_results.each do |result| %>
+      <div class="card" style="width: 11rem;">
+        <div class="card-body">
+          <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+          <span class="card-title"><%= link_to result.searchable.title, dish_availability_path(result.searchable) %></span>
+          <div class="card-details">
+            <div class="card-left">
+              <p>7-9 PM</p> <p>0.8 km away</p>
             </div>
+            <div class="card-price">
+              <p><%= humanized_money_with_symbol(result.searchable.price) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <% end %>
+      <% end %>
 
       <% end %>
     </div>
   </div>
 
-  <!-- Chefs -->
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
     <!-- Default Chefs -->
     <% if @chefs.present? %>
     <% @chefs.each do |chef| %>
@@ -96,22 +87,18 @@
     <!-- Searched Chefs -->
     <% if @search_results.present? %>
 
-      <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
-        <% @chefs_a.each do |result| %>
-          <div class="chef-card">
-            <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
-            <div>
-              <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
-              <span>*****</span>
-            </div>
-            <div class="chef-distance">0.7km away</div>
-            <div class="chef-contact">M</div>
-          </div>
-
-        <% end %>
-
+    <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
+    <% @chefs_a.each do |result| %>
+    <div class="chef-card">
+      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+      <div>
+        <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
+        <span>*****</span>
+      </div>
+      <div class="chef-distance">0.7km away</div>
+      <div class="chef-contact">M</div>
+    </div>
     <% end %>
-
+    <% end %>
   </div>
-
 </div>
