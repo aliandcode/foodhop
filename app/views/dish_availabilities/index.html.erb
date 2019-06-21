@@ -1,18 +1,29 @@
 <nav class="header-nav">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
 
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+<!--   <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+-->
+<%= form_tag dish_availabilities_path, method: :get do %>
+<%= text_field_tag :query,
+params[:query],
+class: "form-control",
+  placeholder: "Search dishes, cuisine or ingredients"
+  %>
+  <% end %>
 
-    <% end %>
-      <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chefs</a>
-      </div>
+  <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chefs</a>
+  </div>
 </nav>
 
 <div class="tab-content" id="nav-tabContent">
+
+  <!-- Dishes -->
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
     <div class="d-flex align-content-start flex-wrap d-flex justify-content-center">
+
+      <!-- Deafult Dishes -->
+      <% if @dish_availabilities.present? %>
       <% @dish_availabilities.each do |availability| %>
       <div class="card" style="width: 11rem;">
         <div class="card-body">
@@ -30,13 +41,37 @@
         </div>
       </div>
       <% end %>
+      <% end %>
+
+      <!-- Searched Dishes -->
+      <% if @search_results.present? %>
+
+      <% @search_results.each do |result| %>
+      <div class="card" style="width: 11rem;">
+        <div class="card-body">
+          <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+          <span class="card-title"><%= link_to result.searchable.title, dish_availability_path(result.searchable) %></span>
+          <div class="card-details">
+            <div class="card-left">
+              <p>7-9 PM</p> <p>0.8 km away</p>
+            </div>
+            <div class="card-price">
+              <p><%= humanized_money_with_symbol(result.searchable.price) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+
+      <% end %>
     </div>
   </div>
 
-  <!-- Chefs -->
-
-<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-  <% @chefs.each do |chef| %>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <!-- Default Chefs -->
+    <% if @chefs.present? %>
+    <% @chefs.each do |chef| %>
     <div class="chef-card">
       <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
       <div>
@@ -46,24 +81,24 @@
       <div class="chef-distance">0.7km away</div>
       <div class="chef-contact">M</div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+    <% end %>
 
+    <!-- Searched Chefs -->
+    <% if @search_results.present? %>
 
-<!--
-    <div class="col-md-4">
-     <% @chefs.each do |chef| %>
-     <div class="chef-card" style="width: 11rem;">
-      <div class="chef-card-body">
-        <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
-        <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
+    <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
+    <% @chefs_a.each do |result| %>
+    <div class="chef-card">
+      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+      <div>
+        <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
+        <span>*****</span>
       </div>
+      <div class="chef-distance">0.7km away</div>
+      <div class="chef-contact">M</div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
-</div>
-
-
-
- -->
