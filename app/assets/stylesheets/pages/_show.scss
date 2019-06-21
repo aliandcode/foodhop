@@ -50,7 +50,7 @@
   background-color: #156801;
   height: 36px;
   width: 137px;
-  margin-top: 53px;
+  margin-top: 105px;
 }
 
 
@@ -60,6 +60,7 @@
   margin-left: 10px;
   margin-top: 10px;
   border-radius: 50%;
+  margin-right: 7px;
 }
 
 .show-style p {
@@ -82,6 +83,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-style: bolder;
+  margin-top: 10px;
 }
 
 .fas {
@@ -90,4 +92,67 @@
 
 .button-container {
   text-align: center;
+}
+
+.card-chef-infos {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.clock-container {
+  display: flex;
+  align-items: baseline;
+
+}
+
+.marker-container {
+  display: flex;
+  align-items: baseline;
+
+}
+
+
+
+
+
+
+.chef-container {
+
+  display: flex;
+ flex-wrap: nowrap;
+ justify-content: space-between;
+ align-items: center;
+
+  }
+
+  .name-stars {
+flex-direction: column;
+  display: flex;
+ flex-wrap: wrap;
+}
+
+  .fa-map-marker-alt:before  {
+ font-size: 15px;
+ margin-right: 5px;
+}
+
+.fa-clock:before {
+    margin-right: 4px;
+    padding-right: 2px;
+}
+
+.command-time {
+    font-size: 13px;
+}
+
+.chef-distance {
+    font-size: 13px;
+}
+
+.info-container {
+  margin-top: 17px;
 }

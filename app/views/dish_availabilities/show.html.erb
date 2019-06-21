@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class= "show-style">
   <div class="card-dish">
     <img src="https://www.theelementsofliving.com/wp-content/uploads/2017/08/shutterstock_573890704.jpg" class="img-dish">
@@ -8,8 +7,9 @@
   </div>
   <div class="container">
     <div class="card-chef-infos">
-      <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
       <div class="chef-container">
+        <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+        <div class="name-stars">
         <p><%= @chef.first_name %> </p>
         <div class="star-container">
           <i class="fas fa-star"></i>
@@ -17,14 +17,17 @@
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
+          </div>
         </div>
+      </div>
+        <div>
         <div class="clock-container">
-          <p> 6 - 9 PM </p>
           <i class="far fa-clock"></i>
+          <div class="command-time">6 - 9 PM</div>
         </div>
         <div class="marker-container">
-          <p> 1.2 km away </p>
-          <i class="fas fa-map-marker"></i>
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="chef-distance">0.7km away</div>
         </div>
       </div>
     </div>
@@ -51,11 +54,3 @@
 </div>
 
 
-
-=======
-<h2><%= @dish_availability.dish.title %></h2>
-<h5><%= @dish_availability.dish.ingredients %></h5>
-<br>
-<br>
-<%= link_to "Place your order", new_dish_availability_order_path(@dish_availability) %>
->>>>>>> master
