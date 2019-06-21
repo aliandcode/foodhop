@@ -1,13 +1,13 @@
 <nav class="header-nav">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
 
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+  <input class="form-control string required" type="text" name="search[query]" id="search_query" />
 
-    <% end %>
-      <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chefs</a>
-      </div>
+  <% end %>
+  <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dishes</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Chefs</a>
+  </div>
 </nav>
 
 <div class="tab-content" id="nav-tabContent">
@@ -35,8 +35,8 @@
 
   <!-- Chefs -->
 
-<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-  <% @chefs.each do |chef| %>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% @chefs.each do |chef| %>
     <div class="chef-card">
       <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
       <div>
@@ -46,24 +46,5 @@
       <div class="chef-distance">0.7km away</div>
       <div class="chef-contact">M</div>
     </div>
-  <% end %>
-</div>
-
-
-<!--
-    <div class="col-md-4">
-     <% @chefs.each do |chef| %>
-     <div class="chef-card" style="width: 11rem;">
-      <div class="chef-card-body">
-        <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
-        <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
-      </div>
-    </div>
     <% end %>
   </div>
-</div>
-</div>
-
-
-
- -->
