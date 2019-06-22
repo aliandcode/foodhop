@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   end
 
   resources :dish_availabilities, only: [:index, :show] do
-    resources :orders
+    resources :orders do
+      resources :payments, only: [:new, :create]
+    end
   end
+
+  # resources :orders, only: [:show, :create] do
+  #   resources :payments, only: [:new, :create]
+  # end
 
   resources :users
 
