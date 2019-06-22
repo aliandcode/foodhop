@@ -2,11 +2,9 @@ class PaymentsController < ApplicationController
   before_action :set_order
 
   def new
-    raise
   end
 
   def create
-    raise
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
@@ -15,11 +13,11 @@ class PaymentsController < ApplicationController
     charge = Stripe::Charge.create(
       customer:     customer.id,   # You should store this customer id and re-use it.
       amount:       @order.amount_cents,
-      description:  "Payment for teddy #{@order.teddy_sku} for order #{@order.id}",
+      description:  "Payment for dish #{@order.dish_availability.dish.title} for order #{@order.id}",
       currency:     @order.amount.currency
     )
 
-    @order.update(payment: charge.to_json, state: 'paid')
+    @order.update(payment: charge.to_json, status: 'paid')
     redirect_to order_path(@order)
 
     rescue Stripe::CardError => e

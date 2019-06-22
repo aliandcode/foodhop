@@ -15,16 +15,21 @@ class OrdersController < ApplicationController
 
   def create
     @dish_availability = DishAvailability.find(params[:dish_availability_id])
-    @order = Order.new
+    @order = Order.new(orders_params)
     @order.dish_availability = @dish_availability
-    raise
-    # @order.user = current_user
-    # raise
+    @order.user = current_user
+    @order.status = 'pending'
+    # @order.amount = 10
 
     if @order.save
-      redirect_to new_dish_availability_order_payment_path(@order)
+      redirect_to new_order_payment_path(@order)
     else
       render :new
     end
+  end
+
+  private
+  def orders_params
+        params.require(:order).permit(:dishes_portion, :comment)
   end
 end
