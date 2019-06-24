@@ -36,7 +36,7 @@ class DishAvailabilitiesController < ApplicationController
     @dish_availability = DishAvailability.new(dish_availability_params)
     @dish_availability.dish = @dish
     if @dish_availability.save!
-      redirect_to root_path
+      redirect_to chef_page_path
     else
       render :new
     end
