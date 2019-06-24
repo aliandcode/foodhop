@@ -1,6 +1,6 @@
 <div class= "show-style">
   <div class="card-dish">
-    <img src="https://www.theelementsofliving.com/wp-content/uploads/2017/08/shutterstock_573890704.jpg" class="img-dish">
+    <img src=" <%= @dish.photo %>" class="img-dish">
     <div class="price-container">
       <h4 class="card-dish-pricing">€15</h4>
     </div>
@@ -8,7 +8,7 @@
   <div class="container">
     <div class="card-chef-infos">
       <div class="chef-container">
-        <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+        <img class="avatar-chef-large" alt="avatar-chef-large" src="<%= @chef.photo %>">
         <div class="name-stars">
         <p><%= @chef.first_name %> </p>
         <div class="star-container">
@@ -36,7 +36,7 @@
 
       <div class="presentation-container">
         <h3><%= @dish_availability.dish.title %></h3>
-        <p><%= @dish_availability.dish.cuisine %></p>
+        <p><%= @dish_availability.dish.cuisine.join %></p>
       </div>
       <div class="description-container">
         <h5>Ingredients</h5>
