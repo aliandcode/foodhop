@@ -1,5 +1,6 @@
 <%= simple_form_for @dish do |f| %>
-  <%= f.input :photo %>
+  <%= f.label :photo %>
+  <%= f.file_field :picture %>
   <%= f.input :title %>
   <%= f.input :ingredients %>
   <%= f.input :allergens, collection: ["Cereals containing gluten", "Crustaceans", "Eggs", "Fish", "Peanuts", "Soybeans", "Milk", "Nuts", "Celery", "Mustard", "Sesame seeds", "Sulphur dioxide and sulphites", "Lupin", "Molluscs"] %>
