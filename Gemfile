@@ -20,6 +20,9 @@ gem 'money-rails'
 gem 'stripe'
 gem 'pg_search'
 gem 'geocoder'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
