@@ -1,8 +1,8 @@
 <div class= "show-style">
   <div class="card-dish">
-    <img src=" <%= @dish.photo %>" class="img-dish">
+    <%= image_tag("#{@dish.photo}", class: "img-dish") %>
     <div class="price-container">
-      <h4 class="card-dish-pricing">€15</h4>
+      <h4 class="card-dish-pricing"><%= humanized_money_with_symbol(@dish.price) %></h4>
     </div>
   </div>
   <div class="container">
@@ -10,7 +10,7 @@
       <div class="chef-container">
         <img class="avatar-chef-large" alt="avatar-chef-large" src="<%= @chef.photo %>">
         <div class="name-stars">
-        <p><%= @chef.first_name %> </p>
+        <p><%= @chef.first_name %> <%= @chef.last_name %></p>
         <div class="star-container">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -48,9 +48,13 @@
       </div>
     </div>
     <div class="button-container">
-      <button type="button-show" class="button">Add To Basket</button>
+      <% if current_user != @dish_availability.dish.user %>
+      <button type="button" class="button" data-toggle="modal" data-target="#bookingModal">
+      Add to basket
+      </button>
+      <% end %>
     </div>
   </div>
 </div>
 
-
+<%= render 'orders/order_modal' %>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'dish_availabilities#index'
+  # root to: 'dish_availabilities#index'
+  root to: 'pages#home'
 
   resources :dishes, only: [:index, :show, :new, :create] do
     resources :dish_availabilities, only: [:new, :create]
@@ -10,6 +11,14 @@ Rails.application.routes.draw do
   resources :dish_availabilities, only: [:index, :show] do
     resources :orders
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
+  # resources :orders, only: [:show, :create] do
+  #   resources :payments, only: [:new, :create]
+  # end
 
   resources :users
 
