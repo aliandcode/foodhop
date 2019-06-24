@@ -13,14 +13,9 @@
       <% @dishes.each do |dish| %>
 
       <!-- Button trigger modal -->
-      <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">Header</div>
-        <div class="card-body text-success">
-          <h5 class="card-title"><%= dish.title %></h5>
-          <p class="card-text"><%= dish.ingredients %></p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
-      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>">
+        <%= dish.title %>
+      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal-<%= dish.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
