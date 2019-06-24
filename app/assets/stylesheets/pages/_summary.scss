@@ -22,3 +22,63 @@
   border-radius: 4px;
 }
 
+.order-summ {
+  font-size: 2.2rem;
+  color: #156801;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.card-summary {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 3px;
+}
+
+button.stripe-button-el,
+button.stripe-button-el>span {
+  background-color: #156801 !important;
+  background-image: none;
+}
+
+.stripe-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.order-confirmed {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 3px;
+  color: #156801;
+}
+
+#confirmation-header {
+  color: white;
+}
+
+.order-confirmed-header {
+  font-size: 2.2rem;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+#confirmation-map {
+  margin-top: 30px;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+
+
