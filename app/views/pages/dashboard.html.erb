@@ -1,20 +1,15 @@
-<h1>ciao</h1>
-<%= @user.email %>
-<br>
-<br>
-<ul>
-  <li>Profile info</li>
-  <li>My orders</li>
-  <li>Settings</li>
-  <li>Help</li>
-  <li>Favourites</li>
-  <li>Logout</li>
-  <br>
-  <br>
+<div class="container">
+  <h1 id="dashboard-head">Ciao, <%= @user.first_name.capitalize %>!</h1>
+  <div class="card-dashboard">Profile info</div>
+  <div class="card-dashboard">My Orders</div>
+  <div class="card-dashboard">Settings</div>
+  <div class="card-dashboard">Help</div>
+  <div class="card-dashboard">Favourites</div>
+  <div class="card-dashboard"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></div>
   <%#= raise %>
   <% if @user.is_chef %>
-    <li><%= link_to 'My chef page', chef_page_path %></li>
+  <div class="card-mychef"><%= link_to 'My Chef Page', chef_page_path %></div>
   <% else %>
-    <li><%= link_to 'Become a chef', make_chef_path %></li>
+  <div class="card-mychef"><%= link_to 'Become A Chef', make_chef_path %></div>
   <% end %>
-</ul>
+</div>
