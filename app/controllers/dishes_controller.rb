@@ -12,7 +12,7 @@ class DishesController < ApplicationController
     @dish = Dish.new(dish_params)
     @dish.user = current_user
     if @dish.save!
-      redirect_to root_path
+      redirect_to chef_page_path
     else
       render :new
     end
