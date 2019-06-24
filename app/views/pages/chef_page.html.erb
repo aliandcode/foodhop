@@ -1,5 +1,5 @@
-<h1>Add a dish +</h1>
-<h1>Dishes</h1>
+<h1><%= link_to "Add a dish", new_dish_path %></h1><%=  %>
+<!-- <h1>Dishes</h1>
   <ul>
     <% @dishes.each do |dish| %>
     <li><%= dish.title %></li>
@@ -48,4 +48,64 @@
         </ul>
       <% end %>
     <% end %>
+  </ul> -->
+
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My menu</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Active dishes</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My orders</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <ul>
+      <% @dishes.each do |dish| %>
+      <li><%= dish.title %></li>
+      <%= simple_form_for [dish, @dish_availability] do |f| %>
+      <%= f.input :portion_available %>
+      <%= f.input :price %>
+      <%= f.input :date %>
+      <%= f.input :address %>
+      <%= f.button :submit %>
+      <% end %>
+
+      <%#= link_to new_dish_dish_availability_path(dish) do %>
+
+      <%# end %>
+      <% end %>
   </ul>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% @dishes.each do |dish| %>
+    <ul>
+      <% dish.dish_availabilities.each do |availability| %>
+      <li><%= availability.dish.title %></li>
+      <li><%= availability.dish.user.address %></li>
+      <li><%= availability.date %></li>
+      <li><%= availability.price %> €</li>
+      <li><%= availability.portion_available %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <ul>
+    <% @dishes.each do |dish| %>
+      <% dish.dish_availabilities.each do |availability| %>
+        <ul>
+          <% availability.orders.each do |order| %>
+            <li><%= order.user.first_name %></li>
+            <li><%= order.dishes_portion %></li>
+            <li><%= order.dish_availability.dish.title %></li>
+            <li><%= order.dish_availability.date %></li>
+            <li><%= order.status %></li>
+            <br>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </ul>
+  </div>
+</div>
