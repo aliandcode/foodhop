@@ -12,7 +12,7 @@
     </div>
 
     <div class="card-summary">
-      <strong>Price:</strong> <%= @order.dish_availability.dish.price %>
+      <strong>Price:</strong> <%= humanized_money_with_symbol(@order.dish_availability.price) %>
     </div>
     <div class="card-summary">
       <strong>Total Due:</strong> <%= humanized_money_with_symbol(@order.amount) %>
