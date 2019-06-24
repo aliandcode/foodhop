@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     resources :orders
   end
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
+  # resources :orders, only: [:show, :create] do
+  #   resources :payments, only: [:new, :create]
+  # end
+
   resources :users
 
   get '/dashboard', to: "pages#dashboard"
