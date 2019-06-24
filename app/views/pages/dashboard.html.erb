@@ -8,7 +8,7 @@
   <li>Settings</li>
   <li>Help</li>
   <li>Favourites</li>
-  <li>Logout</li>
+  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
   <br>
   <br>
   <%#= raise %>
