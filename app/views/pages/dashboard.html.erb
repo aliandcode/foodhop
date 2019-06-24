@@ -1,12 +1,11 @@
 <div class="container">
   <h1 id="dashboard-head">Ciao,<%= @user.first_name %></h1>
-  <br>
   <div class="card-dashboard">Profile info</div>
   <div class="card-dashboard">My Orders</div>
   <div class="card-dashboard">Settings</div>
   <div class="card-dashboard">Help</div>
   <div class="card-dashboard">Favourites</div>
-  <div class="card-dashboard">Logout</div>
+  <div class="card-dashboard"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></div>
   <%#= raise %>
   <% if @user.is_chef %>
   <div class="card-mychef"><%= link_to 'My Chef Page', chef_page_path %></div>
