@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :dishes
   has_many :reviews
   has_many :orders
+  mount_uploader :photo, PhotoUploader
+
   # has_many :dish_availabilities, through: dishes
 
   include PgSearch
