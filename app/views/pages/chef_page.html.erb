@@ -62,15 +62,35 @@
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
     <ul>
       <% @dishes.each do |dish| %>
-      <li><%= dish.title %></li>
-      <%= simple_form_for [dish, @dish_availability] do |f| %>
-      <%= f.input :portion_available %>
-      <%= f.input :price %>
-      <%= f.input :date %>
-      <%= f.input :address %>
-      <%= f.button :submit %>
-      <% end %>
 
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>">
+        <%= dish.title %>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal-<%= dish.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Activate dish</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= dish.title %>
+              <%= simple_form_for [dish, @dish_availability] do |f| %>
+              <%= f.input :portion_available %>
+              <%= f.input :price %>
+              <%= f.input :date %>
+              <%= f.input :address %>
+              <%= f.button :submit %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
       <%#= link_to new_dish_dish_availability_path(dish) do %>
 
       <%# end %>
