@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     @order.dish_availability = @dish_availability
     @order.user = current_user
     @order.status = 'pending'
-    @order.amount = 10
+    @order.amount = @dish_availability.price * params['order']['dishes_portion'].to_i
 
     if @order.save
       redirect_to new_order_payment_path(@order)
