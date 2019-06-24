@@ -8,7 +8,7 @@
   <div class="container">
     <div class="card-chef-infos">
       <div class="chef-container">
-        <img class="avatar-chef-large" alt="avatar-chef-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+        <img class="avatar-chef-large" alt="avatar-chef-large" src="<%= @chef.photo %>">
         <div class="name-stars">
         <p><%= @chef.first_name %> <%= @chef.last_name %></p>
         <div class="star-container">
@@ -36,7 +36,7 @@
 
       <div class="presentation-container">
         <h3><%= @dish_availability.dish.title %></h3>
-        <p><%= @dish_availability.dish.cuisine %></p>
+        <p><%= @dish_availability.dish.cuisine.join %></p>
       </div>
       <div class="description-container">
         <h5>Ingredients</h5>

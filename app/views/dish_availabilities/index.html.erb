@@ -26,7 +26,7 @@ class: "form-control",
       <% @dish_availabilities.each do |availability| %>
       <div class="card" style="width: 11rem;">
         <div class="card-body">
-          <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
+          <img src="<%= availability.dish.photo %>" class="card-img-top" alt="...">
           <span class="card-title"><%= link_to availability.dish.title, dish_availability_path(availability) %></span>
           <div class="card-details">
             <div class="card-left">
@@ -72,13 +72,25 @@ class: "form-control",
     <% if @chefs.present? %>
     <% @chefs.each do |chef| %>
     <div class="chef-card">
-      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+      <div><img src="<%= chef.photo %>" class="avatar card-img-top" alt="..."></div>
       <div>
-        <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span><br>
-        <span>*****</span>
+       <div>
+          <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
+          <div class="star-container">
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+          </div>
+        </div>
       </div>
       <div class="chef-distance">0.7km away</div>
-      <div class="chef-contact">M</div>
+      <div class="chef-contact">
+        <button type="button" class="btn btn-outline-secondary">
+        <i class="far fa-envelope"></i>
+        </button>
+      </div>
     </div>
     <% end %>
     <% end %>
@@ -95,8 +107,8 @@ class: "form-control",
         <span>*****</span>
       </div>
       <div class="chef-distance">0.7km away</div>
-      <div class="chef-contact">M</div>
-    </div>
+        <div class="chef-contact"></div>
+      </div>
     <% end %>
     <% end %>
   </div>
