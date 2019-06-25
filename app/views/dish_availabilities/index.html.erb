@@ -72,47 +72,48 @@ class: "form-control",
     <!-- Default Chefs -->
     <% if @chefs.present? %>
     <% @chefs.each do |chef| %>
+    <%= link_to chef_availab_path(chef) do %>
     <div class="chef-card">
       <div class="img-stars">
         <div class="img-chef"><img src="<%= chef.photo %>" class="avatar card-img-top" alt="..."></div>
-       <div>
-        <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
-        <div class="star-container">
-          <i class="fas fa-star fa-list"></i>
-          <i class="fas fa-star fa-list"></i>
-          <i class="fas fa-star fa-list"></i>
-          <i class="fas fa-star fa-list"></i>
-          <i class="fas fa-star fa-list"></i>
+        <div>
+          <span class="card-title"><%= chef.first_name %> <%= chef.last_name %></span>
+          <div class="star-container">
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+            <i class="fas fa-star fa-list"></i>
+          </div>
+        </div>
+      </div>
+      <div class="distace-contact">
+        <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
+        <div class="chef-contact">
+          <button type="button" class="btn btn-outline-secondary">
+            <i class="far fa-envelope"></i>
+          </button>
         </div>
       </div>
     </div>
-    <div class="distace-contact">
-    <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
-    <div class="chef-contact">
-      <button type="button" class="btn btn-outline-secondary">
-        <i class="far fa-envelope"></i>
-      </button>
+    <% end %>
+    <% end %>
+
+    <!-- Searched Chefs -->
+    <% if @search_results.present? %>
+
+    <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
+    <% @chefs_a.each do |result| %>
+    <div class="chef-card">
+      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+      <div>
+        <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
+        <span>*****</span>
       </div>
+      <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
+      <div class="chef-contact"></div>
     </div>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
-
-  <!-- Searched Chefs -->
-  <% if @search_results.present? %>
-
-  <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
-  <% @chefs_a.each do |result| %>
-  <div class="chef-card">
-    <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
-    <div>
-      <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
-      <span>*****</span>
-    </div>
-    <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
-    <div class="chef-contact"></div>
-  </div>
-  <% end %>
-  <% end %>
-</div>
 </div>

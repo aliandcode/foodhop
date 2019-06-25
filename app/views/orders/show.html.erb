@@ -1,15 +1,17 @@
 <div class="background">
+<div>
   <h1 class="order-confirmed-header">Payment Confirmed</h1>
   <h2 id="confirmation-header">Your chef is prepaing you good food!</h2>
   <h2 id="confirmation-header">You have ordered the following:</h2>
-  <div class="order-confirmed">
-    <strong>Dish:</strong> <%= @order.dish_availability.dish.title %>
-  </div>
-  <div class="order-confirmed">
-    <strong>QTY:</strong> <%= @order.dishes_portion %>
-  </div>
-  <div class="order-confirmed">
-    <strong>Total PAID:</strong> <%= humanized_money_with_symbol(@order.amount) %>
-  </div>
+    <div class="order-confirmed">
+      <strong>Dish:</strong> <%= @order.dish_availability.dish.title %>
+    </div>
+    <div class="order-confirmed">
+      <strong>QTY:</strong> <%= @order.dishes_portion %>
+    </div>
+    <div class="order-confirmed">
+      <strong>Total PAID:</strong> <%= humanized_money_with_symbol(@order.amount) %>
+    </div>
     <p id="confirmation-map">View on map</p>
+  </div>
 </div>
