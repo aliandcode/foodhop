@@ -32,7 +32,7 @@ class: "form-control",
           <div class="card-details">
             <div class="card-left">
               <p>7-9 PM</p>
-              <p><%= availability.dish.user.distance_from(current_user) %> km away</p>
+              <p><%= availability.dish.user.distance_from(current_user).round(1) %> km away</p>
             </div>
             <div class="card-price">
               <p><%= humanized_money_with_symbol(availability.dish.price) %></p>
@@ -53,7 +53,7 @@ class: "form-control",
           <span class="card-title"><%= link_to result.searchable.title, dish_availability_path(result.searchable) %></span>
           <div class="card-details">
             <div class="card-left">
-              <p>7-9 PM</p> <p><%= availability.dish.user.distance_from(current_user) %> km away</p>
+              <p>7-9 PM</p> <p><%= result.searchable.user.distance_from(current_user).round(1) %> km away</p>
             </div>
             <div class="card-price">
               <p><%= humanized_money_with_symbol(result.searchable.price) %></p>
@@ -86,7 +86,7 @@ class: "form-control",
           </div>
         </div>
       </div>
-      <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
+      <div class="chef-distance"><%= chef.distance_from(current_user).round(1) %> km away</div>
       <div class="chef-contact">
         <button type="button" class="btn btn-outline-secondary">
         <i class="far fa-envelope"></i>
@@ -107,7 +107,7 @@ class: "form-control",
         <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
         <span>*****</span>
       </div>
-      <div class="chef-distance"><%= chef.distance_from(current_user) %> km away</div>
+      <div class="chef-distance"><%= result.distance_from(current_user).round(1) %> km away</div>
         <div class="chef-contact"></div>
       </div>
     <% end %>

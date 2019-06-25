@@ -12,8 +12,6 @@ class User < ApplicationRecord
   has_many :orders
   mount_uploader :photo, PhotoUploader
 
-  # has_many :dish_availabilities, through: dishes
-
   include PgSearch
   multisearchable against: %i[first_name last_name address]
 end
