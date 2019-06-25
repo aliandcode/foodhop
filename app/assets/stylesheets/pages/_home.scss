@@ -36,8 +36,6 @@ h2 {
 .background {
   background: linear-gradient(rgba(21,104,1,.95), rgba(21,104,1,.95)), url('https://cdn6.f-cdn.com/contestentries/1081058/20616578/596f25bb70178_thumb900.jpg');
   background-repeat: no-repeat;
-  overflow-y: hidden ! important;
-  overflow-x: hidden ! important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
@@ -50,12 +48,12 @@ h2 {
 
 .logo-container {
   position: absolute;
-  margin-top: 200px;
+  margin-top: 190px;
 }
 
 .btn-container {
   position: absolute;
-  margin-top: 480px;
+  margin-top: 470px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
