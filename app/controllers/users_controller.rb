@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  params.require(:user).permit(:photo)
-
   def show
     @user = current_user
   end
