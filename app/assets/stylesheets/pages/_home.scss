@@ -36,28 +36,24 @@ h2 {
 .background {
   background: linear-gradient(rgba(21,104,1,.95), rgba(21,104,1,.95)), url('https://cdn6.f-cdn.com/contestentries/1081058/20616578/596f25bb70178_thumb900.jpg');
   background-repeat: no-repeat;
-  overflow-y: hidden ! important;
-  overflow-x: hidden ! important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
   height: 100vh;
+  align-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .logo-container {
   position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  left: 25%;
-  margin-left: -76px;
-  margin-top: 216px;
+  margin-top: 190px;
 }
 
 .btn-container {
   position: absolute;
-  left: 31%;
-  margin-left: -50px;
-  margin-top: 549px;
+  margin-top: 470px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
