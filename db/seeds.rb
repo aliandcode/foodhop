@@ -19,7 +19,7 @@ array_user = [
   category: "Amateur",
   bio: "Very good italian Food",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Ali",
   last_name: "Abbas",
@@ -30,7 +30,7 @@ array_user = [
   category: "Amateur",
   bio: "Make the best hummus ever",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Adam",
   last_name: "Somora",
@@ -40,7 +40,7 @@ array_user = [
   phone_number: "+39-371-0555-5789",
   category: "Amateur",
   bio: "Expert in sandwich preparation",
-  address: "52 Corso Magenta, Milano, Italy",
+  address: Faker::Address.full_address,
   is_chef: true,
 },
 { first_name: "Aymeric",
@@ -52,7 +52,7 @@ array_user = [
   category: "Amateur",
   bio: "Makes the best fondue from Switzerland",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Francesco",
   last_name: "Ecclesie",
@@ -63,7 +63,7 @@ array_user = [
   category: "Amateur",
   bio: "Banana all the way!",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Sebastien",
   last_name: "Saunier",
@@ -74,7 +74,7 @@ array_user = [
   category: "Professional",
   bio: "Very good chef from Paris",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Angelo",
   last_name: "Colardo",
@@ -85,7 +85,7 @@ array_user = [
   category: "Amateur",
   bio: "Make the best italian food",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Alexander",
   last_name: "Hill",
@@ -96,7 +96,7 @@ array_user = [
   category: "Amateur",
   bio: "Italian food amateur from Manchester",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Luigi",
   last_name: "Manganiello",
@@ -107,7 +107,7 @@ array_user = [
   category: "Amateur",
   bio: "Looking for good food around home",
   is_chef: false,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Arbi",
   last_name: "Velaj",
@@ -118,7 +118,7 @@ array_user = [
   category: "Professional",
   bio: "Make the best salads",
   is_chef: true,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Pietro",
   last_name: "Ventimiglia",
@@ -129,7 +129,7 @@ array_user = [
   category: "Amateur",
   bio: "Like to discover new dishes",
   is_chef: false,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 },
 { first_name: "Alessio",
   last_name: "Bezzi",
@@ -140,7 +140,7 @@ array_user = [
   category: "Amateur",
   bio: "Downloaded the app but still think that Fidelis is better",
   is_chef: false,
-  address: "52 Corso Magenta, Milano, Italy"
+  address: Faker::Address.full_address,
 }
 ]
 
@@ -148,14 +148,14 @@ array_user.each do |user|
 
 u = User.new(first_name: user[:first_name],
             last_name: user[:last_name],
-            photo: user[:photo],
+            remote_photo_url: user[:photo],
             email: user[:email],
             password: user[:password],
             phone_number: user[:phone_number],
             category: user[:category],
             bio: user[:bio],
             is_chef: user[:is_chef],
-            address: user[:address])
+            address: Faker::Address.full_address,)
 u.save!
 
 end
@@ -335,7 +335,7 @@ array_dish.each do |dish|
 
 d = Dish.new(title: dish[:title],
             ingredients: dish[:ingredients],
-            photo: dish[:photo],
+            remote_photo_url: dish[:photo],
             user_id: dish[:user].id,
             allergens: dish[:allergens],
             price: dish[:price])
