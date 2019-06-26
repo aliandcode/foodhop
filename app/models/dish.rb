@@ -3,6 +3,8 @@ class Dish < ApplicationRecord
   belongs_to :user
   has_many :reviews
   has_many :dish_availabilities
+  mount_uploader :photo, PhotoUploader
+
 
   include PgSearch
   multisearchable against: %i[title ingredients cuisine allergens]
