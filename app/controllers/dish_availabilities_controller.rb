@@ -12,8 +12,8 @@ class DishAvailabilitiesController < ApplicationController
         @chefs_a << result.searchable.user
       end
       @chefs_a = @chefs_a.uniq
-
-      @dish_availabilities = DishAvailability.all.sort_by {|availability| availability.dish.user.distance(current_user)}
+    else
+      @dish_availabilities = DishAvailability.all.uniq(&:dish_id)
       # @dish_availabilities.each do |d_a|
       #   d_a.address = d_a.dish.user.distance_from(current_user).round(1)
       # end

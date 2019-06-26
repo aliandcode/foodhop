@@ -54,7 +54,8 @@
       <div class="card chef-card-menu" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>" style="width: 21.5rem; margin-bottom: 6px">
       <%= cl_image_tag dish.photo, height: 400, width: 400, crop: :fill, class: "card-img-top" %>
       <p class="chef-menu-details"><strong>Dish Name: </strong><%= availability.dish.title %></p>
-      <%= availability.dish.user.address %>
+      <p class="chef-menu-details"><strong>Address: </strong><%= availability.dish.user.address %></p>
+
       <p class="chef-menu-details"><strong>Available on: </strong><%= availability.date %></p>
       <p class="chef-menu-details"><strong>Price: </strong>€<%= availability.price %></p>
       <p class="chef-menu-details"><strong>Portions: </strong><%= availability.portion_available %></p>
