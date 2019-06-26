@@ -25,27 +25,24 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Activate dish</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Activate Your Dish</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <%= dish.title %>
+              <h3 id="dish-title-modal"><%= dish.title %></h3>
               <%= simple_form_for [dish, @dish_availability] do |f| %>
               <%= f.input :portion_available %>
               <%= f.input :price %>
               <%= f.input :date %>
               <%= f.input :address %>
-              <%= f.button :submit %>
+              <%= f.button :submit, class:"btn-chef-modal" %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
-      <%#= link_to new_dish_dish_availability_path(dish) do %>
-
-      <%# end %>
       <% end %>
     </div>
 
