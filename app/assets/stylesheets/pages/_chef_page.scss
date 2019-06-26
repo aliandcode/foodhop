@@ -10,3 +10,39 @@
   font-style: normal;
   margin-bottom: 20px;
 }
+
+.nav-tabContent-chef {
+  margin-bottom: 10px;
+}
+
+.chef-menu-details {
+  padding: 1px;
+  padding-left: 5px;
+  margin: 0px;
+}
+
+
+.chef-card-menu > img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+#exampleModalLabel {
+  color: white;
+  font-size: 25px;
+}
+
+#dish-title-modal {
+  color: #156801;
+  margin-bottom: 20px;
+}
+
+.modal-header {
+ background-color: #156801;
+}
+
+.btn-chef-modal {
+ background-color: #156801;
+}

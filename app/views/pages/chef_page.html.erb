@@ -9,57 +9,57 @@
   </div>
 </nav>
 
-<div class="tab-content" id="nav-tabContent">
+<div class="tab-content" id="nav-tabContent-chef">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-      <% @dishes.each do |dish| %>
-      <div class="card">
-      <div data-toggle="modal" data-target="#exampleModal-<%= dish.id %>">
-        <%= cl_image_tag dish.photo, height: 300, width: 400, crop: :fill %>
-      </div>
-      </div>
-
+  <% @dishes.each do |dish| %>
+    <div class="card chef-card-menu" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>" style="width: 21.5rem; margin-bottom: 6px">
+      <%= cl_image_tag dish.photo, height: 400, width: 400, crop: :fill, class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="menu-card-title"><%= dish.title %></h5>
+        </div>
+    </div>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal-<%= dish.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Activate dish</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Activate Your Dish</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <%= dish.title %>
+              <h3 id="dish-title-modal"><%= dish.title %></h3>
               <%= simple_form_for [dish, @dish_availability] do |f| %>
               <%= f.input :portion_available %>
               <%= f.input :price %>
               <%= f.input :date %>
               <%= f.input :address %>
-              <%= f.button :submit %>
+              <%= f.button :submit, class:"btn-chef-modal" %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
-      <%#= link_to new_dish_dish_availability_path(dish) do %>
-
-      <%# end %>
       <% end %>
-  </ul>
-  </div>
+    </div>
+
+
+
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <% @dishes.each do |dish| %>
-    <ul>
       <% dish.dish_availabilities.each do |availability| %>
-      <li><%= availability.dish.title %></li>
-      <li><%= availability.dish.user.address %></li>
-      <li><%= availability.date %></li>
-      <li><%= availability.price %> €</li>
-      <li><%= availability.portion_available %></li>
+      <div class="card chef-card-menu" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>" style="width: 21.5rem; margin-bottom: 6px">
+      <%= cl_image_tag dish.photo, height: 400, width: 400, crop: :fill, class: "card-img-top" %>
+      <p class="chef-menu-details"><strong>Dish Name: </strong><%= availability.dish.title %></p>
+      <%= availability.dish.user.address %>
+      <p class="chef-menu-details"><strong>Available on: </strong><%= availability.date %></p>
+      <p class="chef-menu-details"><strong>Price: </strong>€<%= availability.price %></p>
+      <p class="chef-menu-details"><strong>Portions: </strong><%= availability.portion_available %></p>
+      </div>
       <% end %>
-    </ul>
     <% end %>
   </div>
 
