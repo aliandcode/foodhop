@@ -1,0 +1,10 @@
+<h1><%= @chef.first_name %>'s menu</h1>
+<% @dishes.each do |dish| %>
+  <% dish.dish_availabilities.each do |avail| %>
+    <ul>
+      <li><%= avail.dish.title %></li>
+      <li><%= avail.portion_available %></li>
+      <li><%= avail.dish.user.address %></li>
+    </ul>
+  <% end %>
+<% end %>
