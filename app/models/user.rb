@@ -16,6 +16,6 @@ class User < ApplicationRecord
   multisearchable against: %i[first_name last_name address]
 
   def distance(other_user)
-    distance_from(other_user).round(1)
+    distance_from(other_user)&.round(1)
   end
 end
