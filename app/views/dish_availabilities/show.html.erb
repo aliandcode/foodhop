@@ -27,7 +27,7 @@
         </div>
         <div class="marker-container">
           <i class="fas fa-map-marker-alt"></i>
-          <div class="chef-distance">0.7km away</div>
+          <div class="chef-distance"><%= @chef.distance_from(current_user).round(1) %> km away</div>
         </div>
       </div>
     </div>
