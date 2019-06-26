@@ -9,13 +9,18 @@ class DishAvailabilitiesController < ApplicationController
       # building unique chefs
       @chefs_a = []
       @search_results.each do |result|
-      @chefs_a << result.searchable.user
+        @chefs_a << result.searchable.user
       end
       @chefs_a = @chefs_a.uniq
 
     else
-      @dish_availabilities = DishAvailability.all
-      @chefs = User.where(is_chef: true)
+      @dish_availabilities = DishAvailability.all.sort_by {|availability| availability.dish.user.distance(current_user)}
+      # @dish_availabilities.each do |d_a|
+      #   d_a.address = d_a.dish.user.distance_from(current_user).round(1)
+      # end
+      # @dish_availability.order(address: :desc)
+
+      @chefs = User.where(is_chef: true).sort_by {|chef| chef.distance(current_user)}
     end
   end
 
