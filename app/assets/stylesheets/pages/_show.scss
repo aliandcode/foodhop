@@ -115,29 +115,22 @@
 
 }
 
-
-
-
-
-
 .chef-container {
-
   display: flex;
- flex-wrap: nowrap;
- justify-content: space-between;
- align-items: center;
-
-  }
-
-  .name-stars {
-flex-direction: column;
-  display: flex;
- flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-  .fa-map-marker-alt:before  {
- font-size: 15px;
- margin-right: 5px;
+.name-stars {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fa-map-marker-alt:before  {
+  font-size: 15px;
+  margin-right: 5px;
 }
 
 .fa-clock:before {

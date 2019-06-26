@@ -44,3 +44,32 @@ a {
   }
 }
 
+.order-card {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-container {
+  font-size:30px;
+}
+
+li {
+  list-style: none;
+}
+
+.payment-status-container {
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+
+.chef-name-container {
+  font-size: 18px;
+  font-style: bolder;
+}
+
+.list-style-containet {
+  font-size: 13px;
+}
