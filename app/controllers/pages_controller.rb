@@ -11,4 +11,9 @@ class PagesController < ApplicationController
     @dishes = @user.dishes
     @dish_availability = DishAvailability.new
   end
+
+  def chef_availab
+    @chef = User.find(params[:id])
+    @dishes = @chef.dishes
+  end
 end

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: "pages#dashboard"
   get '/make_chef', to: 'users#make_chef', as: 'make_chef'
   get '/chef_page', to: 'pages#chef_page', as: 'chef_page'
+  get '/chef/:id/chef_availab', to: 'pages#chef_availab', as: 'chef_availab'
 
 
 end
