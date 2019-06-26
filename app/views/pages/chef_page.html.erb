@@ -1,4 +1,5 @@
-<h1><%= link_to "Add a dish", new_dish_path %></h1><%=  %>
+<div class="container">
+<h1><%= link_to "My chef Page", new_dish_path %></h1><%=  %>
 
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -66,22 +67,41 @@
     </ul>
     <% end %>
   </div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-    <ul>
+
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" class="container">
     <% @dishes.each do |dish| %>
       <% dish.dish_availabilities.each do |availability| %>
-        <ul>
-          <% availability.orders.each do |order| %>
-            <li><%= order.user.first_name %></li>
-            <li><%= order.dishes_portion %></li>
-            <li><%= order.dish_availability.dish.title %></li>
-            <li><%= order.dish_availability.date %></li>
+        <% availability.orders.each do |order| %>
+        <div class="chef-card">
+          <div class="chef-order-container">
+            <div class="chef-name-container">
+              <li><%= order.user.first_name %></li>
+            </div>
+            <div class="list-style-containet">
+              <li> Dish: <%= order.dish_availability.dish.title %></li>
+              <li> Portions: <%= order.dishes_portion %></li>
+              <li> Date: <%= order.dish_availability.date %></li>
+            </div>
+          </div>
+          <div class="payment-status-container">
+            <% if order.status = "paid" %>
+            <div class="validate-payment">
+            <li> <i class="fas fa-check-circle"></i> </li>
+            </div>
+            <% else %>
+            <div class="unvalid-payment">
+              <li> <i class="fas fa-search-dollar"></i> </li>
+            </div>
+            <% end %>
             <li><%= order.status %></li>
-            <br>
-          <% end %>
+          </div>
+        </div>
+        <br>
+        <% end %>
         </ul>
       <% end %>
     <% end %>
   </ul>
   </div>
+</div>
 </div>
