@@ -59,3 +59,17 @@
   color: #505050;
   font-size: 10px;
 }
+
+li {
+  list-style: none;
+}
+
+.validate-payment .fa-check-circle {
+    font-size: 28px;
+    color: #32CD32;
+}
+
+.unvalid-payment .fa-search-dollar {
+    font-size: 28px;
+    color: #FFB732;
+}
