@@ -32,7 +32,7 @@ class: "form-control",
           <div class="card-details">
             <div class="card-left">
               <p>7-9 PM</p>
-              <p><%= availability.dish.user.distance_from(current_user).round(1) %> km away</p>
+              <p><%= availability.dish.user.distance(current_user) %> km away</p>
             </div>
             <div class="card-price">
               <p><%= humanized_money_with_symbol(availability.dish.price) %></p>
@@ -86,7 +86,7 @@ class: "form-control",
           </div>
         </div>
       </div>
-      <div class="chef-distance"><%= chef.distance_from(current_user).round(1) %> km away</div>
+      <div class="chef-distance"><%= chef.distance(current_user) %> km away</div>
       <div class="chef-contact">
         <button type="button" class="btn btn-outline-secondary">
         <i class="far fa-envelope"></i>
