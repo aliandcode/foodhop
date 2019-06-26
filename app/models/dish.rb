@@ -5,7 +5,6 @@ class Dish < ApplicationRecord
   has_many :dish_availabilities
   mount_uploader :photo, PhotoUploader
 
-
   include PgSearch
   multisearchable against: %i[title ingredients cuisine allergens]
 end
