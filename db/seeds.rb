@@ -148,7 +148,6 @@ array_user.each do |user|
 
 u = User.new(first_name: user[:first_name],
             last_name: user[:last_name],
-            photo: user[:photo],
             email: user[:email],
             password: user[:password],
             phone_number: user[:phone_number],
@@ -156,6 +155,7 @@ u = User.new(first_name: user[:first_name],
             bio: user[:bio],
             is_chef: user[:is_chef],
             address: user[:address],)
+u.remote_photo_url = user[:photo]
 u.save!
 
 end
@@ -359,11 +359,10 @@ array_dish.each do |dish|
 
 d = Dish.new(title: dish[:title],
             ingredients: dish[:ingredients],
-            photo: dish[:photo],
             user_id: dish[:user].id,
             allergens: dish[:allergens],
             price: dish[:price])
-
+d.remote_photo_url = dish[:photo]
 d.cuisine << dish[:cuisine]
 d.save!
 
