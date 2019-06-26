@@ -14,7 +14,7 @@ class DishAvailabilitiesController < ApplicationController
       @chefs_a = @chefs_a.uniq
 
     else
-      @dish_availabilities = DishAvailability.all
+      @dish_availabilities = DishAvailability.all.uniq(&:dish_id)
       @chefs = User.where(is_chef: true)
     end
   end
