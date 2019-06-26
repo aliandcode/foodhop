@@ -1,5 +1,5 @@
 <div class="container">
-<h1><%= link_to "My chef Page", new_dish_path %></h1><%=  %>
+<h2 class="add-dish-head"><%= link_to "Add a dish +", new_dish_path %></h2><%=  %>
 
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -8,22 +8,17 @@
     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My orders</a>
   </div>
 </nav>
+
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <ul>
-      <% @dishes.each do |dish| %>
 
-      <!-- Button trigger modal -->
-        <div class="card" data-toggle="modal" data-target="#exampleModal-<%= dish.id %>">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      <!-- <button type="button" class="btn btn-primary" >
-        <%= dish.title %>
-      </button> -->
+      <% @dishes.each do |dish| %>
+      <div class="card">
+      <div data-toggle="modal" data-target="#exampleModal-<%= dish.id %>">
+        <%= cl_image_tag dish.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+      </div>
+
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal-<%= dish.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
