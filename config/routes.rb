@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/dashboard', to: "pages#dashboard"
+  get '/dashboard', to: "pages#dashboard", as: 'dashboard'
   get '/make_chef', to: 'users#make_chef', as: 'make_chef'
   get '/chef_page', to: 'pages#chef_page', as: 'chef_page'
   get '/chef/:id/chef_availab', to: 'pages#chef_availab', as: 'chef_availab'
