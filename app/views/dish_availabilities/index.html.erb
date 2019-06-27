@@ -35,7 +35,7 @@ class: "form-control",
               <p><%= availability.dish.user.distance(current_user) %> km away</p>
             </div>
             <div class="card-price">
-              <p><%= humanized_money_with_symbol(availability.dish.price) %></p>
+              <p><%= humanized_money_with_symbol(availability.price) %></p>
             </div>
           </div>
         </div>
