@@ -46,22 +46,23 @@ class: "form-control",
       <!-- Searched Dishes -->
       <% if @search_results.present? %>
 
-      <% @search_results.each do |result| %>
+      <% @search_results.each do |result_dish| %>
+      <% result_dish.searchable.dish_availabilities.each do |result| %>
       <div class="card" style="width: 11rem;">
         <div class="card-body">
-          <img src="https://picsum.photos/id/237/158/121" class="card-img-top" alt="...">
-          <span class="card-title"><%= link_to result.searchable.title, dish_availability_path(result.searchable) %></span>
+          <img src="<%= result.dish.photo %>" class="card-img-top" alt="...">
+          <span class="card-title"><%= link_to result.dish.title, dish_availability_path(result) %></span>
           <div class="card-details">
             <div class="card-left">
-              <p>7-9 PM</p> <p><%= result.searchable.user.distance_from(current_user).round(1) %> km away</p>
+              <p>7-9 PM</p> <p><%= result.dish.user.distance_from(current_user).round(1) %> km away</p>
             </div>
             <div class="card-price">
-              <p><%= humanized_money_with_symbol(result.searchable.price) %></p>
+              <p><%= humanized_money_with_symbol(result.price) %></p>
             </div>
           </div>
         </div>
       </div>
-
+      <% end %>
       <% end %>
 
       <% end %>
@@ -106,12 +107,12 @@ class: "form-control",
     <!-- Searched Chefs if searching for dish, ingredient, cuisine or allergen -->
     <% @chefs_a.each do |result| %>
     <div class="chef-card">
-      <div><img src="https://picsum.photos/id/237/158/121" class="avatar card-img-top" alt="..."></div>
+      <div><img src="<%= result.photo %>" class="avatar card-img-top" alt="..."></div>
       <div>
         <span class="card-title"><%= result.first_name %> <%= result.last_name %></span><br>
         <span>*****</span>
       </div>
-      <div class="chef-distance"><%= chef.distance(current_user) %> km away</div>
+      <div class="chef-distance"><%= result.distance(current_user) %> km away</div>
       <div class="chef-contact"></div>
     </div>
     <% end %>
