@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user.is_chef = true
     @user.save
 
-    redirect_to chef_page_path
+    redirect_to dashboard_path
   end
 
   def user_params

@@ -10,6 +10,28 @@
   <% if @user.is_chef %>
   <div class="card-mychef"><%= link_to 'My Chef Page', chef_page_path %></div>
   <% else %>
-  <div class="card-mychef"><%= link_to 'Become A Chef', make_chef_path %></div>
+  <button class="card-mychef widhun whitetext" data-toggle="modal" data-target="#exampleModalCenter">Become A Chef</button>
   <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title whitetext" id="exampleModalLongTitle">Inspection request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Thanks!
+        We will soon contact you to set an appointment for you kitchen inspection.
+      </div>
+      <div class="modal-footer">
+
+        <div class="btn btn-secondary txtcenter whitetext vrtalign greenbg"><%= link_to "close", make_chef_path, class: "whitetext" %></div>
+      </div>
+    </div>
+  </div>
 </div>
