@@ -2,7 +2,7 @@
   <div class="card-dish">
     <%= image_tag("#{@dish.photo}", class: "img-dish") %>
     <div class="price-container">
-      <h4 class="card-dish-pricing"><%= humanized_money_with_symbol(@dish.price) %></h4>
+      <h4 class="card-dish-pricing"><%= humanized_money_with_symbol(@dish_availability.price) %></h4>
     </div>
   </div>
   <div class="container">
