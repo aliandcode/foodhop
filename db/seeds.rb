@@ -207,7 +207,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "Eggs",
   cuisine: "European",
-  price: 11,
+  price: 10,
 },
 { title: "Spahetti alla Bolognese",
   ingredients: "Spahetti, Beef, Tomato, Onions",
@@ -271,7 +271,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "None",
   cuisine: "Peruvian",
-  price: 11,
+  price: 9,
 },
 { title: "Chicken Noodles",
   ingredients: "Chicken, Vegetables, Rice Noodles, Eggs",
@@ -303,7 +303,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "None",
   cuisine: "European",
-  price: 14,
+  price: 10,
 },
 { title: "Spaghetti alla vongole",
   ingredients: "Spaghetti, Garlic, Pepper, Clams",
@@ -311,7 +311,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "Crustaceans",
   cuisine: "Italian",
-  price: 13,
+  price: 10,
 },
 { title: "Ratatouille",
   ingredients: "Vegetables, Rosemary, Olive Oil",
@@ -335,7 +335,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "Crustaceans",
   cuisine: "Spanish",
-  price: 11,
+  price: 7,
 },
 { title: "Quiche",
   ingredients: "Eggs, Cream, Ham",
@@ -351,7 +351,7 @@ array_dish = [
   user: User.where(is_chef: true).sample,
   allergens: "Cereals containing gluten, Eggs",
   cuisine: "American",
-  price: 5,
+  price: 3,
 }
 ]
 
@@ -384,7 +384,7 @@ end
   dish_availability.date = Time.at(rand * (Time.now.to_f - 0.0.to_f))
   dish_availability.portion_available = "#{rand(1..12)} servings"
   dish_availability.dish = Dish.all.sample
-  dish_availability.price = rand(25..200)/10.0
+  dish_availability.price = rand(25..110)/10
   dish_availability.save!
 end
 
