@@ -19,7 +19,7 @@ class DishAvailabilitiesController < ApplicationController
       # end
       # @dish_availability.order(address: :desc)
 
-      @chefs = User.where(is_chef: true).sort_by {|chef| chef.distance(current_user)}
+      @chefs = User.where(is_chef: true)
     end
   end
 
